@@ -2,12 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\NewUserHasRegisteredEvent;
+use App\Http\Requests\LoginUserRequest;
+use App\Http\Requests\RegisterUserRequest;
 use App\User;
+use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+/**
+ * @group JWT authentication and token handling
+ *
+ * All jwt related authentication and authorization
+ *
+ * Class AuthController
+ * @package App\Http\Controllers
+ */
 class AuthController extends Controller
 {
     /**
@@ -17,17 +30,17 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['jwt', 'auth:api'], ['except' => ['login', 'register']]);
+        $this->middleware(['jwt', 'auth:api'], ['except' => ['login', 'register', 'refresh']]);
     }
 
     /**
      * Get a JWT token via given credentials.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param LoginUserRequest $request
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
-    public function login(Request $request)
+    public function login(LoginUserRequest $request)
     {
         $credentials = $request->only('email', 'password');
 
@@ -41,7 +54,7 @@ class AuthController extends Controller
     /**
      * Get the authenticated User
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function me()
     {
@@ -51,7 +64,8 @@ class AuthController extends Controller
     /**
      * Log the user out (Invalidate the token)
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
+     * @authenticated
      */
     public function logout()
     {
@@ -63,7 +77,7 @@ class AuthController extends Controller
     /**
      * Refresh a token.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function refresh()
     {
@@ -75,7 +89,8 @@ class AuthController extends Controller
      *
      * @param string $token
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
+     * @authenticated
      */
     protected function respondWithToken($token)
     {
@@ -89,7 +104,7 @@ class AuthController extends Controller
     /**
      * Get the guard to be used during authentication.
      *
-     * @return \Illuminate\Contracts\Auth\Guard
+     * @return Guard
      */
     public function guard()
     {
@@ -99,22 +114,12 @@ class AuthController extends Controller
 
     /**
      * Register a new user
-     * @param Request $request
+     * @param RegisterUserRequest $request
+     * @return JsonResponse
      */
 
-    public function register(Request $request)
+    public function register(RegisterUserRequest $request)
     {
-        $validator = Validator::make($request->all(), [
-            'email' => ['required', 'string', 'email', 'unique:users'],
-            'name' => ['required', 'string', 'min:3'],
-            'password' => ['required', 'string', 'min:8']
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json(
-                $validator->errors()->all(),
-                400);
-        }
         // Prepare data to store
         $data = [
             'email' => $request->email,
@@ -122,9 +127,15 @@ class AuthController extends Controller
             'password' => Hash::make($request->password)
         ];
 
+        $login_data = [
+            'email' => $request->email,
+            'password' => $request->password
+        ];
+
         $create_user = User::create($data);
         if ($create_user) {
-            return $this->login($request);
+            event(new NewUserHasRegisteredEvent($create_user));
+            return $this->login(new LoginUserRequest($login_data));
         }
     }
 

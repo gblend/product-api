@@ -2,9 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: *');
-header('Access-Control-Allow-Headers: Authorization, Content-Type');
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,9 +13,9 @@ header('Access-Control-Allow-Headers: Authorization, Content-Type');
 |
 */
 
-// Auth Routes
+// Routes for JWT auth
 Route::group([
-    'prefix' => 'auth'
+    'prefix' => 'jwt'
 ], function () {
     Route::post('login', 'AuthController@login');
     Route::post('logout', 'AuthController@logout');
@@ -27,10 +24,19 @@ Route::group([
     Route::post('me', 'AuthController@me');
 });
 
+// Routes for Sanctum auth
+Route::group([
+    'prefix' => 'sanctum'
+], function () {
+    Route::post('register', 'UserController@register');
+    Route::post('login', 'UserController@login');
+    Route::post('logout', 'UserController@logout');
+});
+
 // API Request Routes
 Route::group([
     'namespace' => 'Api',
-    'middleware' => 'auth:api'
+    'middleware' => 'auth:sanctum'  // auth:sanctum (for sanctum tokens), auth:api (for jwt tokens)
 ], function () {
     Route::apiResource('products', 'ProductController');
     Route::apiResource('categories', 'CategoryController');

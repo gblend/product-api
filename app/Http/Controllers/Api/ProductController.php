@@ -11,11 +11,19 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
 
+/**
+ * @group Product Management
+ * Class ProductController
+ * @package App\Http\Controllers\Api
+ * @authenticated
+ */
 class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
+     * Get all products with their category from the database and display the resource.
+     * @apiResource App\Http\Resources\ProductResource
      * @return AnonymousResourceCollection
      */
     public function index()
@@ -37,6 +45,7 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
+     * Perform validation of product creation request amd store product information on the database amd return the created resource.
      * @param StoreProductRequest $request
      * @return JsonResponse
      */
@@ -59,6 +68,8 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
+     * Get the information of a specified resource and display the information.
+     * @apiResource App\Http\Resources\ProductResource
      * @param Product $product
      * @return ProductResource
      */
@@ -80,6 +91,8 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
+     * Validate incoming request fdr resource update and update the resource on successful validation
+     * @apiResource App\Http\Resources\ProductResource
      * @param StoreProductRequest $request
      * @param Product $product
      * @return ProductResource
@@ -93,6 +106,7 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+     * Search if a particular resource exists and delete it if it does.
      * @param Product $product
      * @return Response
      * @throws Exception

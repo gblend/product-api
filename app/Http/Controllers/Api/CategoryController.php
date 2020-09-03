@@ -14,13 +14,22 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
+use function GuzzleHttp\Psr7\str;
 
+/**
+ * @group Category Management
+ * Class CategoryController
+ * @package App\Http\Controllers\Api
+ * @authenticated
+ */
 class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
+     * Get all products with their category from the database and display the resource.
      * @return AnonymousResourceCollection
+     * @apiResource App\Http\Resources\CategoryResource
      */
     public function index()
     {
@@ -41,20 +50,21 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
+     * Perform validation of product creation request amd store product information on the database amd return the created resource.
      * @param StoreCategoryRequest $request
      * @return JsonResponse
      */
     public function store(StoreCategoryRequest $request)
     {
         $data = $request->all();
-        $name = '';
+        $photo = '';
         if ($request->hasFile('photo')) {
-            $path = 'storage/uploads';
-            $photo = $request->file('photo');
-            $name = $path . '/' . uniqid() . '.' . $photo->extension();
-            move_uploaded_file($name, $path);
+            $path = 'public/uploads';
+            $file = $request->file('photo');
+            $photo = $path . '/' . uniqid() . '.' . strtolower($file->getClientOriginalExtension());
+            $file->move($path, $photo);
         }
-        $data['photo'] = $name;
+        $data['photo'] = $photo;
         if (Category::create($data)) {
             return response()->json([
                 'message' => 'Category created successfully',
@@ -70,6 +80,8 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
+     * Get the information of a specified resource and display the information.
+     * @apiResource App\Http\Resources\CategoryResource
      * @param Category $category
      * @return CategoryResource
      */
@@ -92,23 +104,33 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      *
+     * Validate incoming request fdr resource update and update the resource on successful validation
+     * @apiResource App\Http\Resources\CategoryResource
      * @param StoreCategoryRequest $request
      * @param Category $category
      * @return CategoryResource
      */
     public function update(StoreCategoryRequest $request, Category $category)
     {
+        $data = $request->all();
+        $photo = '';
         if ($request->hasFile('photo')) {
-            //Delete category photo from folder
+            //Delete old category photo from folder
             unlink($category->photo);
+            $path = 'public/uploads';
+            $file = $request->file('photo');
+            $photo = $path . '/' . uniqid() . '.' . strtolower($file->getClientOriginalExtension());
+            $file->move($path, $photo);
         }
-        $category->update($request->all());
+        $data['photo'] = $photo;
+        $category->update($data);
         return new CategoryResource($category);
     }
 
     /**
      * Remove the specified resource from storage.
      *
+     * Search if a particular resource exists and delete it if it does.
      * @param Category $category
      * @return Application|ResponseFactory|Response
      * @throws Exception
