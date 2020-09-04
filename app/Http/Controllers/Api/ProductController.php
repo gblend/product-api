@@ -7,6 +7,7 @@ use App\Http\Resources\ProductResource;
 use App\Product;
 use App\Http\Controllers\Controller;
 use Exception;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
@@ -48,9 +49,12 @@ class ProductController extends Controller
      * Perform validation of product creation request amd store product information on the database amd return the created resource.
      * @param StoreProductRequest $request
      * @return JsonResponse
+     * @throws AuthorizationException
      */
     public function store(StoreProductRequest $request)
     {
+        //Authorize those with policy to create product to be able to create product
+        $this->authorize('create', Product::class);
         //Request data
         $data = $request->all();
         if (Product::create($data)) { // Create product if validation passes
@@ -113,6 +117,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        $this->authorize('delete', $product);
         $product->delete();
         return response(null, Response::HTTP_NO_CONTENT);
     }
