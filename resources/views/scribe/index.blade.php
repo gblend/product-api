@@ -46,7 +46,7 @@
                             <li><a href='http://github.com/knuckleswtf/scribe'>Documentation powered by Scribe ✍</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: September 1 2020</li>
+            <li>Last updated: September 5 2020</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -125,8 +125,8 @@ response.json()</code></pre>
     "http://localhost/api/categories" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "name=nam" \
-    -F "photo=@C:\Users\gblend\AppData\Local\Temp\phpC925.tmp" </code></pre>
+    -F "name=voluptas" \
+    -F "photo=@C:\Users\gblend\AppData\Local\Temp\phpD2B3.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/categories"
 );
@@ -137,7 +137,7 @@ let headers = {
 };
 
 const body = new FormData();
-body.append('name', 'nam');
+body.append('name', 'voluptas');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {
@@ -159,11 +159,11 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'name',
-                'contents' =&gt; 'nam'
+                'contents' =&gt; 'voluptas'
             ],
             [
                 'name' =&gt; 'photo',
-                'contents' =&gt; fopen('C:\Users\gblend\AppData\Local\Temp\phpC925.tmp', 'r')
+                'contents' =&gt; fopen('C:\Users\gblend\AppData\Local\Temp\phpD2B3.tmp', 'r')
             ],
         ],
     ]
@@ -175,10 +175,10 @@ import json
 
 url = 'http://localhost/api/categories'
 files = {
-  'photo': open('C:\Users\gblend\AppData\Local\Temp\phpC925.tmp', 'rb')
+  'photo': open('C:\Users\gblend\AppData\Local\Temp\phpD2B3.tmp', 'rb')
 }
 payload = {
-    "name": "nam"
+    "name": "voluptas"
 }
 headers = {
   'Content-Type': 'multipart/form-data',
@@ -268,8 +268,8 @@ response.json()</code></pre>
     "http://localhost/api/categories/1" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "name=necessitatibus" \
-    -F "photo=@C:\Users\gblend\AppData\Local\Temp\phpD933.tmp" </code></pre>
+    -F "name=adipisci" \
+    -F "photo=@C:\Users\gblend\AppData\Local\Temp\phpD2F2.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/categories/1"
 );
@@ -280,7 +280,7 @@ let headers = {
 };
 
 const body = new FormData();
-body.append('name', 'necessitatibus');
+body.append('name', 'adipisci');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {
@@ -302,11 +302,11 @@ $response = $client-&gt;put(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'name',
-                'contents' =&gt; 'necessitatibus'
+                'contents' =&gt; 'adipisci'
             ],
             [
                 'name' =&gt; 'photo',
-                'contents' =&gt; fopen('C:\Users\gblend\AppData\Local\Temp\phpD933.tmp', 'r')
+                'contents' =&gt; fopen('C:\Users\gblend\AppData\Local\Temp\phpD2F2.tmp', 'r')
             ],
         ],
     ]
@@ -318,10 +318,10 @@ import json
 
 url = 'http://localhost/api/categories/1'
 files = {
-  'photo': open('C:\Users\gblend\AppData\Local\Temp\phpD933.tmp', 'rb')
+  'photo': open('C:\Users\gblend\AppData\Local\Temp\phpD2F2.tmp', 'rb')
 }
 payload = {
-    "name": "necessitatibus"
+    "name": "adipisci"
 }
 headers = {
   'Content-Type': 'multipart/form-data',
@@ -413,7 +413,7 @@ response.json()</code></pre>
     "http://localhost/api/jwt/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"reilly.mireya@example.org","password":"quaerat"}'
+    -d '{"email":"lhettinger@example.net","password":"aperiam"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/jwt/login"
@@ -425,8 +425,8 @@ let headers = {
 };
 
 let body = {
-    "email": "reilly.mireya@example.org",
-    "password": "quaerat"
+    "email": "lhettinger@example.net",
+    "password": "aperiam"
 }
 
 fetch(url, {
@@ -446,8 +446,8 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'email' =&gt; 'reilly.mireya@example.org',
-            'password' =&gt; 'quaerat',
+            'email' =&gt; 'lhettinger@example.net',
+            'password' =&gt; 'aperiam',
         ],
     ]
 );
@@ -458,8 +458,8 @@ import json
 
 url = 'http://localhost/api/jwt/login'
 payload = {
-    "email": "reilly.mireya@example.org",
-    "password": "quaerat"
+    "email": "lhettinger@example.net",
+    "password": "aperiam"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -551,7 +551,7 @@ response.json()</code></pre>
     "http://localhost/api/jwt/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"thora.davis@example.com","name":"doloribus","password":"tempore"}'
+    -d '{"email":"zboncak.gavin@example.com","name":"et","password":"qui"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/jwt/register"
@@ -563,9 +563,9 @@ let headers = {
 };
 
 let body = {
-    "email": "thora.davis@example.com",
-    "name": "doloribus",
-    "password": "tempore"
+    "email": "zboncak.gavin@example.com",
+    "name": "et",
+    "password": "qui"
 }
 
 fetch(url, {
@@ -585,9 +585,9 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'email' =&gt; 'thora.davis@example.com',
-            'name' =&gt; 'doloribus',
-            'password' =&gt; 'tempore',
+            'email' =&gt; 'zboncak.gavin@example.com',
+            'name' =&gt; 'et',
+            'password' =&gt; 'qui',
         ],
     ]
 );
@@ -598,9 +598,9 @@ import json
 
 url = 'http://localhost/api/jwt/register'
 payload = {
-    "email": "thora.davis@example.com",
-    "name": "doloribus",
-    "password": "tempore"
+    "email": "zboncak.gavin@example.com",
+    "name": "et",
+    "password": "qui"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -610,613 +610,18 @@ headers = {
 response = requests.request('POST', url, headers=headers, json=payload)
 response.json()</code></pre>
 <blockquote>
-<p>Example response (500):</p>
+<p>Example response (422):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "message": "SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.\r\n (SQL: select count(*) as aggregate from `users` where `email` = thora.davis@example.com)",
-    "exception": "Illuminate\\Database\\QueryException",
-    "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php",
-    "line": 671,
-    "trace": [
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php",
-            "line": 631,
-            "function": "runQueryCallback",
-            "class": "Illuminate\\Database\\Connection",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php",
-            "line": 339,
-            "function": "run",
-            "class": "Illuminate\\Database\\Connection",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php",
-            "line": 2260,
-            "function": "select",
-            "class": "Illuminate\\Database\\Connection",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php",
-            "line": 2248,
-            "function": "runSelect",
-            "class": "Illuminate\\Database\\Query\\Builder",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php",
-            "line": 2743,
-            "function": "Illuminate\\Database\\Query\\{closure}",
-            "class": "Illuminate\\Database\\Query\\Builder",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php",
-            "line": 2249,
-            "function": "onceWithColumns",
-            "class": "Illuminate\\Database\\Query\\Builder",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php",
-            "line": 2670,
-            "function": "get",
-            "class": "Illuminate\\Database\\Query\\Builder",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php",
-            "line": 2598,
-            "function": "aggregate",
-            "class": "Illuminate\\Database\\Query\\Builder",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Validation\\DatabasePresenceVerifier.php",
-            "line": 55,
-            "function": "count",
-            "class": "Illuminate\\Database\\Query\\Builder",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Validation\\Concerns\\ValidatesAttributes.php",
-            "line": 765,
-            "function": "getCount",
-            "class": "Illuminate\\Validation\\DatabasePresenceVerifier",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Validation\\Validator.php",
-            "line": 547,
-            "function": "validateUnique",
-            "class": "Illuminate\\Validation\\Validator",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Validation\\Validator.php",
-            "line": 370,
-            "function": "validateAttribute",
-            "class": "Illuminate\\Validation\\Validator",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Validation\\Validator.php",
-            "line": 401,
-            "function": "passes",
-            "class": "Illuminate\\Validation\\Validator",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Validation\\ValidatesWhenResolvedTrait.php",
-            "line": 25,
-            "function": "fails",
-            "class": "Illuminate\\Validation\\Validator",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Providers\\FormRequestServiceProvider.php",
-            "line": 30,
-            "function": "validateResolved",
-            "class": "Illuminate\\Foundation\\Http\\FormRequest",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
-            "line": 1141,
-            "function": "Illuminate\\Foundation\\Providers\\{closure}",
-            "class": "Illuminate\\Foundation\\Providers\\FormRequestServiceProvider",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
-            "line": 1105,
-            "function": "fireCallbackArray",
-            "class": "Illuminate\\Container\\Container",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
-            "line": 1090,
-            "function": "fireAfterResolvingCallbacks",
-            "class": "Illuminate\\Container\\Container",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
-            "line": 711,
-            "function": "fireResolvingCallbacks",
-            "class": "Illuminate\\Container\\Container",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php",
-            "line": 796,
-            "function": "resolve",
-            "class": "Illuminate\\Container\\Container",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
-            "line": 637,
-            "function": "resolve",
-            "class": "Illuminate\\Foundation\\Application",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php",
-            "line": 781,
-            "function": "make",
-            "class": "Illuminate\\Container\\Container",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteDependencyResolverTrait.php",
-            "line": 79,
-            "function": "make",
-            "class": "Illuminate\\Foundation\\Application",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteDependencyResolverTrait.php",
-            "line": 48,
-            "function": "transformDependency",
-            "class": "Illuminate\\Routing\\ControllerDispatcher",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteDependencyResolverTrait.php",
-            "line": 28,
-            "function": "resolveMethodDependencies",
-            "class": "Illuminate\\Routing\\ControllerDispatcher",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php",
-            "line": 41,
-            "function": "resolveClassMethodDependencies",
-            "class": "Illuminate\\Routing\\ControllerDispatcher",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php",
-            "line": 239,
-            "function": "dispatch",
-            "class": "Illuminate\\Routing\\ControllerDispatcher",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php",
-            "line": 196,
-            "function": "runController",
-            "class": "Illuminate\\Routing\\Route",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
-            "line": 685,
-            "function": "run",
-            "class": "Illuminate\\Routing\\Route",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 128,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php",
-            "line": 41,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
-            "line": 59,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\sanctum\\src\\Http\\Middleware\\EnsureFrontendRequestsAreStateful.php",
-            "line": 33,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 128,
-            "function": "Laravel\\Sanctum\\Http\\Middleware\\{closure}",
-            "class": "Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 103,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\sanctum\\src\\Http\\Middleware\\EnsureFrontendRequestsAreStateful.php",
-            "line": 34,
-            "function": "then",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 103,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
-            "line": 687,
-            "function": "then",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
-            "line": 662,
-            "function": "runRouteWithinStack",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
-            "line": 628,
-            "function": "runRoute",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
-            "line": 617,
-            "function": "dispatchToRoute",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
-            "line": 165,
-            "function": "dispatch",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 128,
-            "function": "Illuminate\\Foundation\\Http\\{closure}",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
-            "line": 21,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
-            "line": 21,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php",
-            "line": 27,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php",
-            "line": 63,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php",
-            "line": 57,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Fruitcake\\Cors\\HandleCors",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\fideloper\\proxy\\src\\TrustProxies.php",
-            "line": 57,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Fideloper\\Proxy\\TrustProxies",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 103,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
-            "line": 140,
-            "function": "then",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
-            "line": 109,
-            "function": "sendRequestThroughRouter",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-            "line": 322,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-            "line": 304,
-            "function": "callLaravelOrLumenRoute",
-            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-            "line": 76,
-            "function": "makeApiCall",
-            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-            "line": 51,
-            "function": "makeResponseCall",
-            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-            "line": 41,
-            "function": "makeResponseCallIfEnabledAndNoSuccessResponses",
-            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
-            "line": 211,
-            "function": "__invoke",
-            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
-            "line": 149,
-            "function": "iterateThroughStrategies",
-            "class": "Knuckles\\Scribe\\Extracting\\Generator",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
-            "line": 109,
-            "function": "fetchResponses",
-            "class": "Knuckles\\Scribe\\Extracting\\Generator",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
-            "line": 118,
-            "function": "processRoute",
-            "class": "Knuckles\\Scribe\\Extracting\\Generator",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
-            "line": 73,
-            "function": "processRoutes",
-            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
-            "type": "-&gt;"
-        },
-        {
-            "function": "handle",
-            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
-            "line": 37,
-            "function": "call_user_func_array"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php",
-            "line": 37,
-            "function": "Illuminate\\Container\\{closure}",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
-            "line": 95,
-            "function": "unwrapIfClosure",
-            "class": "Illuminate\\Container\\Util",
-            "type": "::"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
-            "line": 39,
-            "function": "callBoundMethod",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
-            "line": 596,
-            "function": "call",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
-            "line": 134,
-            "function": "call",
-            "class": "Illuminate\\Container\\Container",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\symfony\\console\\Command\\Command.php",
-            "line": 258,
-            "function": "execute",
-            "class": "Illuminate\\Console\\Command",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
-            "line": 121,
-            "function": "run",
-            "class": "Symfony\\Component\\Console\\Command\\Command",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\symfony\\console\\Application.php",
-            "line": 911,
-            "function": "run",
-            "class": "Illuminate\\Console\\Command",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\symfony\\console\\Application.php",
-            "line": 264,
-            "function": "doRunCommand",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\symfony\\console\\Application.php",
-            "line": 140,
-            "function": "doRun",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php",
-            "line": 93,
-            "function": "run",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php",
-            "line": 129,
-            "function": "run",
-            "class": "Illuminate\\Console\\Application",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\artisan",
-            "line": 37,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Console\\Kernel",
-            "type": "-&gt;"
-        }
-    ]
+    "message": "The given data was invalid.",
+    "errors": {
+        "name": [
+            "The name must be at least 3 characters."
+        ],
+        "password": [
+            "The password must be at least 8 characters."
+        ]
+    }
 }</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-black">POST</small>
@@ -1407,7 +812,7 @@ response.json()</code></pre>
     "http://localhost/api/products" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"fugiat","category_id":1.06112083,"description":"qui","price":34517}'
+    -d '{"name":"veritatis","category_id":131.8649657,"description":"velit","price":32672.05198}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/products"
@@ -1419,10 +824,10 @@ let headers = {
 };
 
 let body = {
-    "name": "fugiat",
-    "category_id": 1.06112083,
-    "description": "qui",
-    "price": 34517
+    "name": "veritatis",
+    "category_id": 131.8649657,
+    "description": "velit",
+    "price": 32672.05198
 }
 
 fetch(url, {
@@ -1442,10 +847,10 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'name' =&gt; 'fugiat',
-            'category_id' =&gt; 1.06112083,
-            'description' =&gt; 'qui',
-            'price' =&gt; 34517.0,
+            'name' =&gt; 'veritatis',
+            'category_id' =&gt; 131.8649657,
+            'description' =&gt; 'velit',
+            'price' =&gt; 32672.05198,
         ],
     ]
 );
@@ -1456,10 +861,10 @@ import json
 
 url = 'http://localhost/api/products'
 payload = {
-    "name": "fugiat",
-    "category_id": 1.06112083,
-    "description": "qui",
-    "price": 34517
+    "name": "veritatis",
+    "category_id": 131.8649657,
+    "description": "velit",
+    "price": 32672.05198
 }
 headers = {
   'Content-Type': 'application/json',
@@ -1550,7 +955,7 @@ response.json()</code></pre>
     "http://localhost/api/products/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"dolores","category_id":0.454150526,"description":"deserunt","price":0.91526}'
+    -d '{"name":"quisquam","category_id":1349.07882894,"description":"animi","price":467.7975}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/products/1"
@@ -1562,10 +967,10 @@ let headers = {
 };
 
 let body = {
-    "name": "dolores",
-    "category_id": 0.454150526,
-    "description": "deserunt",
-    "price": 0.91526
+    "name": "quisquam",
+    "category_id": 1349.07882894,
+    "description": "animi",
+    "price": 467.7975
 }
 
 fetch(url, {
@@ -1585,10 +990,10 @@ $response = $client-&gt;put(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'name' =&gt; 'dolores',
-            'category_id' =&gt; 0.454150526,
-            'description' =&gt; 'deserunt',
-            'price' =&gt; 0.91526,
+            'name' =&gt; 'quisquam',
+            'category_id' =&gt; 1349.07882894,
+            'description' =&gt; 'animi',
+            'price' =&gt; 467.7975,
         ],
     ]
 );
@@ -1599,10 +1004,10 @@ import json
 
 url = 'http://localhost/api/products/1'
 payload = {
-    "name": "dolores",
-    "category_id": 0.454150526,
-    "description": "deserunt",
-    "price": 0.91526
+    "name": "quisquam",
+    "category_id": 1349.07882894,
+    "description": "animi",
+    "price": 467.7975
 }
 headers = {
   'Content-Type': 'application/json',
@@ -1696,7 +1101,7 @@ response.json()</code></pre>
     "http://localhost/api/sanctum/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"delbert37@example.com","name":"expedita","password":"quibusdam"}'
+    -d '{"email":"runolfsdottir.shanie@example.net","name":"exercitationem","password":"minus"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/sanctum/register"
@@ -1708,9 +1113,9 @@ let headers = {
 };
 
 let body = {
-    "email": "delbert37@example.com",
-    "name": "expedita",
-    "password": "quibusdam"
+    "email": "runolfsdottir.shanie@example.net",
+    "name": "exercitationem",
+    "password": "minus"
 }
 
 fetch(url, {
@@ -1730,9 +1135,9 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'email' =&gt; 'delbert37@example.com',
-            'name' =&gt; 'expedita',
-            'password' =&gt; 'quibusdam',
+            'email' =&gt; 'runolfsdottir.shanie@example.net',
+            'name' =&gt; 'exercitationem',
+            'password' =&gt; 'minus',
         ],
     ]
 );
@@ -1743,9 +1148,9 @@ import json
 
 url = 'http://localhost/api/sanctum/register'
 payload = {
-    "email": "delbert37@example.com",
-    "name": "expedita",
-    "password": "quibusdam"
+    "email": "runolfsdottir.shanie@example.net",
+    "name": "exercitationem",
+    "password": "minus"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -1755,613 +1160,15 @@ headers = {
 response = requests.request('POST', url, headers=headers, json=payload)
 response.json()</code></pre>
 <blockquote>
-<p>Example response (500):</p>
+<p>Example response (422):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "message": "SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.\r\n (SQL: select count(*) as aggregate from `users` where `email` = delbert37@example.com)",
-    "exception": "Illuminate\\Database\\QueryException",
-    "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php",
-    "line": 671,
-    "trace": [
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php",
-            "line": 631,
-            "function": "runQueryCallback",
-            "class": "Illuminate\\Database\\Connection",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php",
-            "line": 339,
-            "function": "run",
-            "class": "Illuminate\\Database\\Connection",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php",
-            "line": 2260,
-            "function": "select",
-            "class": "Illuminate\\Database\\Connection",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php",
-            "line": 2248,
-            "function": "runSelect",
-            "class": "Illuminate\\Database\\Query\\Builder",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php",
-            "line": 2743,
-            "function": "Illuminate\\Database\\Query\\{closure}",
-            "class": "Illuminate\\Database\\Query\\Builder",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php",
-            "line": 2249,
-            "function": "onceWithColumns",
-            "class": "Illuminate\\Database\\Query\\Builder",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php",
-            "line": 2670,
-            "function": "get",
-            "class": "Illuminate\\Database\\Query\\Builder",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php",
-            "line": 2598,
-            "function": "aggregate",
-            "class": "Illuminate\\Database\\Query\\Builder",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Validation\\DatabasePresenceVerifier.php",
-            "line": 55,
-            "function": "count",
-            "class": "Illuminate\\Database\\Query\\Builder",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Validation\\Concerns\\ValidatesAttributes.php",
-            "line": 765,
-            "function": "getCount",
-            "class": "Illuminate\\Validation\\DatabasePresenceVerifier",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Validation\\Validator.php",
-            "line": 547,
-            "function": "validateUnique",
-            "class": "Illuminate\\Validation\\Validator",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Validation\\Validator.php",
-            "line": 370,
-            "function": "validateAttribute",
-            "class": "Illuminate\\Validation\\Validator",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Validation\\Validator.php",
-            "line": 401,
-            "function": "passes",
-            "class": "Illuminate\\Validation\\Validator",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Validation\\ValidatesWhenResolvedTrait.php",
-            "line": 25,
-            "function": "fails",
-            "class": "Illuminate\\Validation\\Validator",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Providers\\FormRequestServiceProvider.php",
-            "line": 30,
-            "function": "validateResolved",
-            "class": "Illuminate\\Foundation\\Http\\FormRequest",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
-            "line": 1141,
-            "function": "Illuminate\\Foundation\\Providers\\{closure}",
-            "class": "Illuminate\\Foundation\\Providers\\FormRequestServiceProvider",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
-            "line": 1105,
-            "function": "fireCallbackArray",
-            "class": "Illuminate\\Container\\Container",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
-            "line": 1090,
-            "function": "fireAfterResolvingCallbacks",
-            "class": "Illuminate\\Container\\Container",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
-            "line": 711,
-            "function": "fireResolvingCallbacks",
-            "class": "Illuminate\\Container\\Container",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php",
-            "line": 796,
-            "function": "resolve",
-            "class": "Illuminate\\Container\\Container",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
-            "line": 637,
-            "function": "resolve",
-            "class": "Illuminate\\Foundation\\Application",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php",
-            "line": 781,
-            "function": "make",
-            "class": "Illuminate\\Container\\Container",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteDependencyResolverTrait.php",
-            "line": 79,
-            "function": "make",
-            "class": "Illuminate\\Foundation\\Application",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteDependencyResolverTrait.php",
-            "line": 48,
-            "function": "transformDependency",
-            "class": "Illuminate\\Routing\\ControllerDispatcher",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteDependencyResolverTrait.php",
-            "line": 28,
-            "function": "resolveMethodDependencies",
-            "class": "Illuminate\\Routing\\ControllerDispatcher",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php",
-            "line": 41,
-            "function": "resolveClassMethodDependencies",
-            "class": "Illuminate\\Routing\\ControllerDispatcher",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php",
-            "line": 239,
-            "function": "dispatch",
-            "class": "Illuminate\\Routing\\ControllerDispatcher",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php",
-            "line": 196,
-            "function": "runController",
-            "class": "Illuminate\\Routing\\Route",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
-            "line": 685,
-            "function": "run",
-            "class": "Illuminate\\Routing\\Route",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 128,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php",
-            "line": 41,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
-            "line": 59,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\sanctum\\src\\Http\\Middleware\\EnsureFrontendRequestsAreStateful.php",
-            "line": 33,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 128,
-            "function": "Laravel\\Sanctum\\Http\\Middleware\\{closure}",
-            "class": "Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 103,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\sanctum\\src\\Http\\Middleware\\EnsureFrontendRequestsAreStateful.php",
-            "line": 34,
-            "function": "then",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 103,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
-            "line": 687,
-            "function": "then",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
-            "line": 662,
-            "function": "runRouteWithinStack",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
-            "line": 628,
-            "function": "runRoute",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
-            "line": 617,
-            "function": "dispatchToRoute",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
-            "line": 165,
-            "function": "dispatch",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 128,
-            "function": "Illuminate\\Foundation\\Http\\{closure}",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
-            "line": 21,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
-            "line": 21,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php",
-            "line": 27,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php",
-            "line": 63,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php",
-            "line": 57,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Fruitcake\\Cors\\HandleCors",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\fideloper\\proxy\\src\\TrustProxies.php",
-            "line": 57,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 167,
-            "function": "handle",
-            "class": "Fideloper\\Proxy\\TrustProxies",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-            "line": 103,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
-            "line": 140,
-            "function": "then",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
-            "line": 109,
-            "function": "sendRequestThroughRouter",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-            "line": 322,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-            "line": 304,
-            "function": "callLaravelOrLumenRoute",
-            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-            "line": 76,
-            "function": "makeApiCall",
-            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-            "line": 51,
-            "function": "makeResponseCall",
-            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-            "line": 41,
-            "function": "makeResponseCallIfEnabledAndNoSuccessResponses",
-            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
-            "line": 211,
-            "function": "__invoke",
-            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
-            "line": 149,
-            "function": "iterateThroughStrategies",
-            "class": "Knuckles\\Scribe\\Extracting\\Generator",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
-            "line": 109,
-            "function": "fetchResponses",
-            "class": "Knuckles\\Scribe\\Extracting\\Generator",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
-            "line": 118,
-            "function": "processRoute",
-            "class": "Knuckles\\Scribe\\Extracting\\Generator",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
-            "line": 73,
-            "function": "processRoutes",
-            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
-            "type": "-&gt;"
-        },
-        {
-            "function": "handle",
-            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
-            "line": 37,
-            "function": "call_user_func_array"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php",
-            "line": 37,
-            "function": "Illuminate\\Container\\{closure}",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
-            "line": 95,
-            "function": "unwrapIfClosure",
-            "class": "Illuminate\\Container\\Util",
-            "type": "::"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
-            "line": 39,
-            "function": "callBoundMethod",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
-            "line": 596,
-            "function": "call",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
-            "line": 134,
-            "function": "call",
-            "class": "Illuminate\\Container\\Container",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\symfony\\console\\Command\\Command.php",
-            "line": 258,
-            "function": "execute",
-            "class": "Illuminate\\Console\\Command",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
-            "line": 121,
-            "function": "run",
-            "class": "Symfony\\Component\\Console\\Command\\Command",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\symfony\\console\\Application.php",
-            "line": 911,
-            "function": "run",
-            "class": "Illuminate\\Console\\Command",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\symfony\\console\\Application.php",
-            "line": 264,
-            "function": "doRunCommand",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\symfony\\console\\Application.php",
-            "line": 140,
-            "function": "doRun",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php",
-            "line": 93,
-            "function": "run",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php",
-            "line": 129,
-            "function": "run",
-            "class": "Illuminate\\Console\\Application",
-            "type": "-&gt;"
-        },
-        {
-            "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\artisan",
-            "line": 37,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Console\\Kernel",
-            "type": "-&gt;"
-        }
-    ]
+    "message": "The given data was invalid.",
+    "errors": {
+        "password": [
+            "The password must be at least 8 characters."
+        ]
+    }
 }</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-black">POST</small>
@@ -2381,7 +1188,7 @@ The value must be a valid email address.</p>
     "http://localhost/api/sanctum/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"qhuels@example.com","password":"ducimus"}'
+    -d '{"email":"tillman.mckenzie@example.com","password":"dolorum"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/sanctum/login"
@@ -2393,8 +1200,8 @@ let headers = {
 };
 
 let body = {
-    "email": "qhuels@example.com",
-    "password": "ducimus"
+    "email": "tillman.mckenzie@example.com",
+    "password": "dolorum"
 }
 
 fetch(url, {
@@ -2414,8 +1221,8 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'email' =&gt; 'qhuels@example.com',
-            'password' =&gt; 'ducimus',
+            'email' =&gt; 'tillman.mckenzie@example.com',
+            'password' =&gt; 'dolorum',
         ],
     ]
 );
@@ -2426,8 +1233,8 @@ import json
 
 url = 'http://localhost/api/sanctum/login'
 payload = {
-    "email": "qhuels@example.com",
-    "password": "ducimus"
+    "email": "tillman.mckenzie@example.com",
+    "password": "dolorum"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -2510,7 +1317,7 @@ response.json()</code></pre>
     "message": "Call to a member function currentAccessToken() on null",
     "exception": "Error",
     "file": "C:\\xampp\\htdocs\\productAPI\\productAPI\\app\\Http\\Controllers\\UserController.php",
-    "line": 85,
+    "line": 86,
     "trace": [
         {
             "function": "logout",

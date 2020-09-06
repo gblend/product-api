@@ -1,0 +1,773 @@
+openapi: 3.0.3
+info:
+    title: productAPI
+    description: ''
+    version: 1.0.0
+servers:
+    -
+        url: 'http://localhost'
+paths:
+    /api/categories:
+        get:
+            summary: 'Display a listing of the resource.'
+            description: 'Get all products with their category from the database and display the resource.'
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
+            tags:
+                - 'Category Management'
+        post:
+            summary: 'Store a newly created resource in storage.'
+            description: 'Perform validation of product creation request amd store product information on the database amd return the created resource.'
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: multipart/form-data
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
+            tags:
+                - 'Category Management'
+            requestBody:
+                required: true
+                content:
+                    multipart/form-data:
+                        schema:
+                            type: object
+                            properties:
+                                name:
+                                    type: string
+                                    description: ''
+                                    example: tempora
+                                photo:
+                                    type: string
+                                    format: binary
+                                    description: 'The value must be a file.The value must be an image.'
+                            required:
+                                - name
+                                - photo
+    '/api/categories/{category}':
+        get:
+            summary: 'Display the specified resource.'
+            description: 'Get the information of a specified resource and display the information.'
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
+            tags:
+                - 'Category Management'
+        put:
+            summary: 'Update the specified resource in storage.'
+            description: 'Validate incoming request fdr resource update and update the resource on successful validation'
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: multipart/form-data
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
+            tags:
+                - 'Category Management'
+            requestBody:
+                required: true
+                content:
+                    multipart/form-data:
+                        schema:
+                            type: object
+                            properties:
+                                name:
+                                    type: string
+                                    description: ''
+                                    example: vitae
+                                photo:
+                                    type: string
+                                    format: binary
+                                    description: 'The value must be a file.The value must be an image.'
+                            required:
+                                - name
+                                - photo
+        delete:
+            summary: 'Remove the specified resource from storage.'
+            description: 'Search if a particular resource exists and delete it if it does.'
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
+            tags:
+                - 'Category Management'
+    /api/jwt/login:
+        post:
+            summary: 'Get a JWT token via given credentials.'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                422:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: 'The given data was invalid.'
+                                    errors: { password: ['The password must be at least 8 characters.'] }
+                                properties:
+                                    message: { type: string, example: 'The given data was invalid.' }
+                                    errors: { type: object, example: { password: ['The password must be at least 8 characters.'] } }
+            tags:
+                - 'JWT authentication and token handling'
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                email:
+                                    type: string
+                                    description: 'The value must be a valid email address.'
+                                    example: jaren50@example.com
+                                password:
+                                    type: string
+                                    description: ''
+                                    example: non
+                            required:
+                                - email
+                                - password
+            security: []
+    /api/jwt/logout:
+        post:
+            summary: 'Log the user out (Invalidate the token)'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
+            tags:
+                - 'JWT authentication and token handling'
+    /api/jwt/register:
+        post:
+            summary: 'Register a new user'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                422:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: 'The given data was invalid.'
+                                    errors: { password: ['The password must be at least 8 characters.'] }
+                                properties:
+                                    message: { type: string, example: 'The given data was invalid.' }
+                                    errors: { type: object, example: { password: ['The password must be at least 8 characters.'] } }
+            tags:
+                - 'JWT authentication and token handling'
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                email:
+                                    type: string
+                                    description: 'The value must be a valid email address.'
+                                    example: evans.bergstrom@example.org
+                                name:
+                                    type: string
+                                    description: ''
+                                    example: rerum
+                                password:
+                                    type: string
+                                    description: ''
+                                    example: et
+                            required:
+                                - email
+                                - name
+                                - password
+            security: []
+    /api/jwt/refresh:
+        post:
+            summary: 'Refresh a token.'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                400:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    error: 'There is problem with your token'
+                                properties:
+                                    error: { type: string, example: 'There is problem with your token' }
+            tags:
+                - 'JWT authentication and token handling'
+            security: []
+    /api/jwt/me:
+        post:
+            summary: 'Get the authenticated User'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
+            tags:
+                - 'JWT authentication and token handling'
+            security: []
+    /api/products:
+        get:
+            summary: 'Display a listing of the resource.'
+            description: 'Get all products with their category from the database and display the resource.'
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
+            tags:
+                - 'Product Management'
+        post:
+            summary: 'Store a newly created resource in storage.'
+            description: 'Perform validation of product creation request amd store product information on the database amd return the created resource.'
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
+            tags:
+                - 'Product Management'
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                name:
+                                    type: string
+                                    description: ''
+                                    example: nobis
+                                category_id:
+                                    type: number
+                                    description: ''
+                                    example: 88583.914242786
+                                description:
+                                    type: string
+                                    description: ''
+                                    example: esse
+                                price:
+                                    type: number
+                                    description: ''
+                                    example: 17874.617
+                            required:
+                                - name
+                                - category_id
+                                - description
+                                - price
+    '/api/products/{product}':
+        get:
+            summary: 'Display the specified resource.'
+            description: 'Get the information of a specified resource and display the information.'
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
+            tags:
+                - 'Product Management'
+        put:
+            summary: 'Update the specified resource in storage.'
+            description: 'Validate incoming request fdr resource update and update the resource on successful validation'
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
+            tags:
+                - 'Product Management'
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                name:
+                                    type: string
+                                    description: ''
+                                    example: et
+                                category_id:
+                                    type: number
+                                    description: ''
+                                    example: 348516.01824658
+                                description:
+                                    type: string
+                                    description: ''
+                                    example: harum
+                                price:
+                                    type: number
+                                    description: ''
+                                    example: 3.038867
+                            required:
+                                - name
+                                - category_id
+                                - description
+                                - price
+        delete:
+            summary: 'Remove the specified resource from storage.'
+            description: 'Search if a particular resource exists and delete it if it does.'
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
+            tags:
+                - 'Product Management'
+    /api/sanctum/register:
+        post:
+            summary: 'Register new user'
+            description: 'Provide the required parameters to create a user account'
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                201:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    access_token: 4|Ijd83guYud2eYPa9rlRJuRhQrjQt1E7qP0OjezoHCClWMxzQsaZanrEqlops480JKIdgpr5tqBYFcN6M
+                                    token_type: Bearer
+                                    user: { id: 22, name: exercitationem, email: abdiel32@example.com, email_verify_token: null, email_verified_at: null, created_at: '2020-09-05T00:02:36.000000Z', updated_at: '2020-09-05T00:02:36.000000Z' }
+                                properties:
+                                    access_token: { type: string, example: 4|Ijd83guYud2eYPa9rlRJuRhQrjQt1E7qP0OjezoHCClWMxzQsaZanrEqlops480JKIdgpr5tqBYFcN6M }
+                                    token_type: { type: string, example: Bearer }
+                                    user: { type: object, example: { id: 22, name: exercitationem, email: abdiel32@example.com, email_verify_token: null, email_verified_at: null, created_at: '2020-09-05T00:02:36.000000Z', updated_at: '2020-09-05T00:02:36.000000Z' } }
+            tags:
+                - 'Sanctum authentication and token handling'
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                email:
+                                    type: string
+                                    description: 'The value must be a valid email address.'
+                                    example: abdiel32@example.com
+                                name:
+                                    type: string
+                                    description: ''
+                                    example: exercitationem
+                                password:
+                                    type: string
+                                    description: ''
+                                    example: consequatur
+                            required:
+                                - email
+                                - name
+                                - password
+    /api/sanctum/login:
+        post:
+            summary: 'Attempt user login and issue token'
+            description: 'Provide valid authentication credentials'
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                404:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    error: 'Invalid credentials. Please check your credentials'
+                                properties:
+                                    error: { type: string, example: 'Invalid credentials. Please check your credentials' }
+            tags:
+                - 'Sanctum authentication and token handling'
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                email:
+                                    type: string
+                                    description: 'The value must be a valid email address.'
+                                    example: wmckenzie@example.net
+                                password:
+                                    type: string
+                                    description: ''
+                                    example: recusandae
+                            required:
+                                - email
+                                - password
+    /api/sanctum/logout:
+        post:
+            summary: 'Logout user'
+            description: 'Revoke user session access and authentication'
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                500:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: 'Call to a member function currentAccessToken() on null'
+                                    exception: Error
+                                    file: 'C:\xampp\htdocs\productAPI\productAPI\app\Http\Controllers\UserController.php'
+                                    line: 86
+                                    trace: [{ function: logout, class: App\Http\Controllers\UserController, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Routing\Controller.php', line: 54, function: call_user_func_array }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php', line: 45, function: callAction, class: Illuminate\Routing\Controller, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Routing\Route.php', line: 239, function: dispatch, class: Illuminate\Routing\ControllerDispatcher, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Routing\Route.php', line: 196, function: runController, class: Illuminate\Routing\Route, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 685, function: run, class: Illuminate\Routing\Route, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 128, function: 'Illuminate\Routing\{closure}', class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php', line: 41, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Routing\Middleware\SubstituteBindings, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php', line: 59, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Routing\Middleware\ThrottleRequests, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php', line: 33, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 128, function: 'Laravel\Sanctum\Http\Middleware\{closure}', class: Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php', line: 34, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 687, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 662, function: runRouteWithinStack, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 628, function: runRoute, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 617, function: dispatchToRoute, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 165, function: dispatch, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 128, function: 'Illuminate\Foundation\Http\{closure}', class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php', line: 21, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\TransformsRequest, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php', line: 21, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\TransformsRequest, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php', line: 27, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\ValidatePostSize, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode.php', line: 63, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\fruitcake\laravel-cors\src\HandleCors.php', line: 57, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Fruitcake\Cors\HandleCors, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\fideloper\proxy\src\TrustProxies.php', line: 57, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Fideloper\Proxy\TrustProxies, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 140, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 109, function: sendRequestThroughRouter, class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 322, function: handle, class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 304, function: callLaravelOrLumenRoute, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 76, function: makeApiCall, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 51, function: makeResponseCall, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 41, function: makeResponseCallIfEnabledAndNoSuccessResponses, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 211, function: __invoke, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 149, function: iterateThroughStrategies, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 109, function: fetchResponses, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php', line: 118, function: processRoute, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php', line: 73, function: processRoutes, class: Knuckles\Scribe\Commands\GenerateDocumentation, type: '->' }, { function: handle, class: Knuckles\Scribe\Commands\GenerateDocumentation, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 37, function: call_user_func_array }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Container\Util.php', line: 37, function: 'Illuminate\Container\{closure}', class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 95, function: unwrapIfClosure, class: Illuminate\Container\Util, type: '::' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 39, function: callBoundMethod, class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Container\Container.php', line: 596, function: call, class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Console\Command.php', line: 134, function: call, class: Illuminate\Container\Container, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\symfony\console\Command\Command.php', line: 258, function: execute, class: Illuminate\Console\Command, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Console\Command.php', line: 121, function: run, class: Symfony\Component\Console\Command\Command, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\symfony\console\Application.php', line: 911, function: run, class: Illuminate\Console\Command, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\symfony\console\Application.php', line: 264, function: doRunCommand, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\symfony\console\Application.php', line: 140, function: doRun, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Console\Application.php', line: 93, function: run, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php', line: 129, function: run, class: Illuminate\Console\Application, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\artisan', line: 37, function: handle, class: Illuminate\Foundation\Console\Kernel, type: '->' }]
+                                properties:
+                                    message: { type: string, example: 'Call to a member function currentAccessToken() on null' }
+                                    exception: { type: string, example: Error }
+                                    file: { type: string, example: 'C:\xampp\htdocs\productAPI\productAPI\app\Http\Controllers\UserController.php' }
+                                    line: { type: integer, example: 86 }
+                                    trace: { type: array, example: [{ function: logout, class: App\Http\Controllers\UserController, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Routing\Controller.php', line: 54, function: call_user_func_array }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php', line: 45, function: callAction, class: Illuminate\Routing\Controller, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Routing\Route.php', line: 239, function: dispatch, class: Illuminate\Routing\ControllerDispatcher, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Routing\Route.php', line: 196, function: runController, class: Illuminate\Routing\Route, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 685, function: run, class: Illuminate\Routing\Route, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 128, function: 'Illuminate\Routing\{closure}', class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php', line: 41, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Routing\Middleware\SubstituteBindings, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php', line: 59, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Routing\Middleware\ThrottleRequests, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php', line: 33, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 128, function: 'Laravel\Sanctum\Http\Middleware\{closure}', class: Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php', line: 34, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 687, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 662, function: runRouteWithinStack, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 628, function: runRoute, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 617, function: dispatchToRoute, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 165, function: dispatch, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 128, function: 'Illuminate\Foundation\Http\{closure}', class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php', line: 21, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\TransformsRequest, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php', line: 21, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\TransformsRequest, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php', line: 27, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\ValidatePostSize, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode.php', line: 63, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\fruitcake\laravel-cors\src\HandleCors.php', line: 57, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Fruitcake\Cors\HandleCors, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\fideloper\proxy\src\TrustProxies.php', line: 57, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Fideloper\Proxy\TrustProxies, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 140, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 109, function: sendRequestThroughRouter, class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 322, function: handle, class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 304, function: callLaravelOrLumenRoute, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 76, function: makeApiCall, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 51, function: makeResponseCall, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 41, function: makeResponseCallIfEnabledAndNoSuccessResponses, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 211, function: __invoke, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 149, function: iterateThroughStrategies, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 109, function: fetchResponses, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php', line: 118, function: processRoute, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php', line: 73, function: processRoutes, class: Knuckles\Scribe\Commands\GenerateDocumentation, type: '->' }, { function: handle, class: Knuckles\Scribe\Commands\GenerateDocumentation, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 37, function: call_user_func_array }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Container\Util.php', line: 37, function: 'Illuminate\Container\{closure}', class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 95, function: unwrapIfClosure, class: Illuminate\Container\Util, type: '::' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 39, function: callBoundMethod, class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Container\Container.php', line: 596, function: call, class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Console\Command.php', line: 134, function: call, class: Illuminate\Container\Container, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\symfony\console\Command\Command.php', line: 258, function: execute, class: Illuminate\Console\Command, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Console\Command.php', line: 121, function: run, class: Symfony\Component\Console\Command\Command, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\symfony\console\Application.php', line: 911, function: run, class: Illuminate\Console\Command, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\symfony\console\Application.php', line: 264, function: doRunCommand, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\symfony\console\Application.php', line: 140, function: doRun, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Console\Application.php', line: 93, function: run, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php', line: 129, function: run, class: Illuminate\Console\Application, type: '->' }, { file: 'C:\xampp\htdocs\productAPI\productAPI\artisan', line: 37, function: handle, class: Illuminate\Foundation\Console\Kernel, type: '->' }], items: { type: object } }
+            tags:
+                - 'Sanctum authentication and token handling'

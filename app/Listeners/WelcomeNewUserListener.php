@@ -2,8 +2,10 @@
 
 namespace App\Listeners;
 
+use App\Mail\NewUserRegisteredMail;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Support\Facades\Mail;
 
 class WelcomeNewUserListener implements ShouldQueue
 {
@@ -28,10 +30,11 @@ class WelcomeNewUserListener implements ShouldQueue
         //Set delay before email sends
         sleep(10);
 
+//        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new NewUserRegisteredMail('trhghcghjcrzreyzeerhz'));
         $target_endpoint = "https://api.elasticemail.com/v2/email/send";
         $apiKey = env('ELASTIC_MAIL_API_KEY');
-        $merge_firstname = $event->create_user->name;
         $msg_to = $event->create_user->email;
+        $url = $event->create_user->url ?? '';
         try {
             $post = array(
                 "from" => "gabrielilo190@gmail.com",
@@ -43,7 +46,7 @@ class WelcomeNewUserListener implements ShouldQueue
                 "reply_to" => "gabrielilo190@gmail.com",
                 "reply_to_name" => "ProductAPI",
                 'template' => 'design_email',
-                'merge_firstname' => $merge_firstname,
+                'merge_firstname' => $url,
             );
 
             $cl = curl_init();

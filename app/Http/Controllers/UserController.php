@@ -56,19 +56,29 @@ class UserController extends Controller
      */
     public function register(RegisterUserRequest $request)
     {
+        // Generate email verify token and verify url
+        $email_verify_token = md5($request->email . now());
+        $url = isset($_SERVER['HTTPS']) ? 'https' : 'http' . '//' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . '?vertokemail=' . $email_verify_token;
         // Prepare data to store
-        $data = [
+        $request_data = [
             'email' => $request->email,
             'name' => $request->name,
-            'password' => Hash::make($request->password)
+            'password' => Hash::make($request->password),
+            'email_verify_token' => $email_verify_token
         ];
 
-        $create_user = User::create($data);
+        // New user login credentials
+        $login_data = [
+            'email' => $request->email,
+            'password' => $request->password
+        ];
+        $create_user = User::create($request_data);
         if ($create_user) {
-            // Login created user
-            $login_data = [
+            //@TODO use this for email verification
+            //Details for sending email verification link to user
+            $userIsCreated = [
                 'email' => $request->email,
-                'password' => $request->password
+                'url' => $url
             ];
             event(new NewUserHasRegisteredEvent($create_user));
             return $this->login(new LoginUserRequest($login_data));

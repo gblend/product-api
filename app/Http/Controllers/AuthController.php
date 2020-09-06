@@ -121,11 +121,15 @@ class AuthController extends Controller
     public function register(RegisterUserRequest $request)
     {
         // Prepare data to store
+        $email_verify_token = md5($request->email . now());
+        $url = isset($_SERVER['HTTPS']) ? 'https' : 'http' . '//' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . '?vertokemail=' . $email_verify_token;
         $data = [
             'email' => $request->email,
             'name' => $request->name,
-            'password' => Hash::make($request->password)
+            'password' => Hash::make($request->password),
+            'email_verify_token' => $email_verify_token
         ];
+
 
         $login_data = [
             'email' => $request->email,
@@ -134,6 +138,11 @@ class AuthController extends Controller
 
         $create_user = User::create($data);
         if ($create_user) {
+           // @TODO use this for email verification
+            $userIsCreated = [
+                'email' => $request->email,
+                'url' => $url
+            ];
             event(new NewUserHasRegisteredEvent($create_user));
             return $this->login(new LoginUserRequest($login_data));
         }

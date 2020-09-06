@@ -93,8 +93,8 @@ curl -X POST \
     "http://localhost/api/categories" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "name=nam" \
-    -F "photo=@C:\Users\gblend\AppData\Local\Temp\phpC925.tmp" 
+    -F "name=voluptas" \
+    -F "photo=@C:\Users\gblend\AppData\Local\Temp\phpD2B3.tmp" 
 ```
 
 ```javascript
@@ -108,7 +108,7 @@ let headers = {
 };
 
 const body = new FormData();
-body.append('name', 'nam');
+body.append('name', 'voluptas');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {
@@ -133,11 +133,11 @@ $response = $client->post(
         'multipart' => [
             [
                 'name' => 'name',
-                'contents' => 'nam'
+                'contents' => 'voluptas'
             ],
             [
                 'name' => 'photo',
-                'contents' => fopen('C:\Users\gblend\AppData\Local\Temp\phpC925.tmp', 'r')
+                'contents' => fopen('C:\Users\gblend\AppData\Local\Temp\phpD2B3.tmp', 'r')
             ],
         ],
     ]
@@ -152,10 +152,10 @@ import json
 
 url = 'http://localhost/api/categories'
 files = {
-  'photo': open('C:\Users\gblend\AppData\Local\Temp\phpC925.tmp', 'rb')
+  'photo': open('C:\Users\gblend\AppData\Local\Temp\phpD2B3.tmp', 'rb')
 }
 payload = {
-    "name": "nam"
+    "name": "voluptas"
 }
 headers = {
   'Content-Type': 'multipart/form-data',
@@ -280,8 +280,8 @@ curl -X PUT \
     "http://localhost/api/categories/1" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "name=necessitatibus" \
-    -F "photo=@C:\Users\gblend\AppData\Local\Temp\phpD933.tmp" 
+    -F "name=adipisci" \
+    -F "photo=@C:\Users\gblend\AppData\Local\Temp\phpD2F2.tmp" 
 ```
 
 ```javascript
@@ -295,7 +295,7 @@ let headers = {
 };
 
 const body = new FormData();
-body.append('name', 'necessitatibus');
+body.append('name', 'adipisci');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {
@@ -320,11 +320,11 @@ $response = $client->put(
         'multipart' => [
             [
                 'name' => 'name',
-                'contents' => 'necessitatibus'
+                'contents' => 'adipisci'
             ],
             [
                 'name' => 'photo',
-                'contents' => fopen('C:\Users\gblend\AppData\Local\Temp\phpD933.tmp', 'r')
+                'contents' => fopen('C:\Users\gblend\AppData\Local\Temp\phpD2F2.tmp', 'r')
             ],
         ],
     ]
@@ -339,10 +339,10 @@ import json
 
 url = 'http://localhost/api/categories/1'
 files = {
-  'photo': open('C:\Users\gblend\AppData\Local\Temp\phpD933.tmp', 'rb')
+  'photo': open('C:\Users\gblend\AppData\Local\Temp\phpD2F2.tmp', 'rb')
 }
 payload = {
-    "name": "necessitatibus"
+    "name": "adipisci"
 }
 headers = {
   'Content-Type': 'multipart/form-data',

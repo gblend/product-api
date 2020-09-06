@@ -93,7 +93,7 @@ curl -X POST \
     "http://localhost/api/products" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"fugiat","category_id":1.06112083,"description":"qui","price":34517}'
+    -d '{"name":"veritatis","category_id":131.8649657,"description":"velit","price":32672.05198}'
 
 ```
 
@@ -108,10 +108,10 @@ let headers = {
 };
 
 let body = {
-    "name": "fugiat",
-    "category_id": 1.06112083,
-    "description": "qui",
-    "price": 34517
+    "name": "veritatis",
+    "category_id": 131.8649657,
+    "description": "velit",
+    "price": 32672.05198
 }
 
 fetch(url, {
@@ -134,10 +134,10 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'name' => 'fugiat',
-            'category_id' => 1.06112083,
-            'description' => 'qui',
-            'price' => 34517.0,
+            'name' => 'veritatis',
+            'category_id' => 131.8649657,
+            'description' => 'velit',
+            'price' => 32672.05198,
         ],
     ]
 );
@@ -151,10 +151,10 @@ import json
 
 url = 'http://localhost/api/products'
 payload = {
-    "name": "fugiat",
-    "category_id": 1.06112083,
-    "description": "qui",
-    "price": 34517
+    "name": "veritatis",
+    "category_id": 131.8649657,
+    "description": "velit",
+    "price": 32672.05198
 }
 headers = {
   'Content-Type': 'application/json',
@@ -285,7 +285,7 @@ curl -X PUT \
     "http://localhost/api/products/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"dolores","category_id":0.454150526,"description":"deserunt","price":0.91526}'
+    -d '{"name":"quisquam","category_id":1349.07882894,"description":"animi","price":467.7975}'
 
 ```
 
@@ -300,10 +300,10 @@ let headers = {
 };
 
 let body = {
-    "name": "dolores",
-    "category_id": 0.454150526,
-    "description": "deserunt",
-    "price": 0.91526
+    "name": "quisquam",
+    "category_id": 1349.07882894,
+    "description": "animi",
+    "price": 467.7975
 }
 
 fetch(url, {
@@ -326,10 +326,10 @@ $response = $client->put(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'name' => 'dolores',
-            'category_id' => 0.454150526,
-            'description' => 'deserunt',
-            'price' => 0.91526,
+            'name' => 'quisquam',
+            'category_id' => 1349.07882894,
+            'description' => 'animi',
+            'price' => 467.7975,
         ],
     ]
 );
@@ -343,10 +343,10 @@ import json
 
 url = 'http://localhost/api/products/1'
 payload = {
-    "name": "dolores",
-    "category_id": 0.454150526,
-    "description": "deserunt",
-    "price": 0.91526
+    "name": "quisquam",
+    "category_id": 1349.07882894,
+    "description": "animi",
+    "price": 467.7975
 }
 headers = {
   'Content-Type': 'application/json',

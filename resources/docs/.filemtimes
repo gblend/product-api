@@ -1,9 +1,9 @@
 # GENERATED. YOU SHOULDN'T MODIFY OR DELETE THIS FILE.
 # Scribe uses this file to know when you change something manually in your docs.
 resources/docs/groups/endpoints.md=1598945519
-resources/docs/index.md=1598947202
-resources/docs/authentication.md=1598947202
-resources/docs/groups/jwt-authentication-and-token-handling.md=1598947202
-resources/docs/groups/sanctum-authentication-and-token-handling.md=1598947202
-resources/docs/groups/product-management.md=1598947202
-resources/docs/groups/category-management.md=1598947202
+resources/docs/index.md=1599264194
+resources/docs/authentication.md=1599264194
+resources/docs/groups/jwt-authentication-and-token-handling.md=1599264194
+resources/docs/groups/sanctum-authentication-and-token-handling.md=1599264194
+resources/docs/groups/product-management.md=1599264194
+resources/docs/groups/category-management.md=1599264194
