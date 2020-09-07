@@ -18,4 +18,11 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    /**
+     * @test
+     */
+    public function quick() {
+        $this->assertTrue(true);
+    }
 }
